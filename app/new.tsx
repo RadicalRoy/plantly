@@ -3,18 +3,25 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  ScrollView,
   Alert,
+  TouchableOpacity,
+  Platform,
 } from "react-native";
 import { theme } from "@/theme";
 import { PlantlyImage } from "@/components/PlantlyImage";
 import { useState } from "react";
 import { PlantlyButton } from "@/components/PlantlyButton";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { usePlantStore } from "@/store/plantsStore";
+import { useRouter } from "expo-router";
+import * as ImagePicker from "expo-image-picker";
 
 export default function NewScreen() {
+  const [imgUri, setImgUri] = useState("");
   const [name, setName] = useState("");
   const [frequency, setFrequency] = useState("");
+  const addPlant = usePlantStore((state) => state.addPlant);
+  const router = useRouter();
 
   const handleSubmit = () => {
     if (!name) {
@@ -35,7 +42,28 @@ export default function NewScreen() {
       );
     }
 
-    console.log("Adding plant", name, frequency);
+    addPlant(name, Number(frequency), imgUri);
+    router.navigate("/");
+
+    // console.log("Adding plant", name, frequency);
+  };
+
+  const handleChooseImage = async () => {
+    if (Platform.OS === "web") {
+      return;
+    }
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+    console.log("result", JSON.stringify(result, null, " "));
+
+    if (!result.canceled) {
+      setImgUri(result.assets[0].uri);
+    }
   };
 
   return (
@@ -44,9 +72,13 @@ export default function NewScreen() {
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="handled"
     >
-      <View style={styles.centered}>
-        <PlantlyImage />
-      </View>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={styles.centered}
+        onPress={handleChooseImage}
+      >
+        <PlantlyImage imageUri={imgUri} />
+      </TouchableOpacity>
 
       <View style={styles.form}>
         <View style={styles.formField}>
@@ -96,5 +128,5 @@ const styles = StyleSheet.create({
   formField: {},
   form: {},
   label: { fontSize: 18, marginBottom: 8 },
-  centered: { alignItems: "center" },
+  centered: { alignItems: "center", marginBottom: 24 },
 });
