@@ -3603,10 +3603,20 @@ expo-font@~13.0.3:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-haptics@~14.0.1:
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-14.0.1.tgz#ff4ead605e33f1917e615c9328af7ac1c34892dc"
+  integrity sha512-V81FZ7xRUfqM6uSI6FA1KnZ+QpEKnISqafob/xEfcx1ymwhm4V3snuLWWFjmAz+XaZQTqlYa8z3QbqEXz7G63w==
+
 expo-keep-awake@~14.0.2:
   version "14.0.2"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-14.0.2.tgz#124a729df43c87994631f51d5b1b5093d58e6c80"
   integrity sha512-71XAMnoWjKZrN8J7Q3+u0l9Ytp4OfhNAYz8BCWF1/9aFUw09J3I7Z5DuI3MUsVMa/KWi+XhG+eDUFP8cVA19Uw==
+
+expo-linear-gradient@~14.0.2:
+  version "14.0.2"
+  resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-14.0.2.tgz#51fb266d1c7a38349077d243e383cc3d69d4356b"
+  integrity sha512-nvac1sPUfFFJ4mY25UkvubpUV/olrBH+uQw5k+beqSvQaVQiUfFtYzfRr+6HhYBNb4AEsOtpsCRkpDww3M2iGQ==
 
 expo-linking@~7.0.5:
   version "7.0.5"
