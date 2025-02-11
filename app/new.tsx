@@ -10,6 +10,7 @@ import { theme } from "@/theme";
 import { PlantlyImage } from "@/components/PlantlyImage";
 import { useState } from "react";
 import { PlantlyButton } from "@/components/PlantlyButton";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function NewScreen() {
   const [name, setName] = useState("");
@@ -38,7 +39,7 @@ export default function NewScreen() {
   };
 
   return (
-    <ScrollView
+    <KeyboardAwareScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="handled"
@@ -70,7 +71,7 @@ export default function NewScreen() {
         </View>
         <PlantlyButton title="Add plant" onPress={handleSubmit} />
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 }
 
