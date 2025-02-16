@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "plantly",
+    "name": "Plantly",
     "scheme": "plantly",
     "slug": "plantly",
     "version": "1.0.0",
@@ -28,8 +28,6 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router"
-    ]
+    "plugins": ["expo-router"]
   }
 }

@@ -1,4 +1,6 @@
-import { Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
+
+SplashScreen.preventAutoHideAsync();
 
 /*
     "fade" animation makes more sense for onboarding
